@@ -64,8 +64,8 @@ export default function ChartsPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold">Price Charts</h1>
-          <p className="text-muted-foreground">Interactive cryptocurrency price charts and analysis</p>
+          <h1 className="text-3xl font-bold text-slate-100">Price Charts</h1>
+          <p className="text-slate-300">Interactive cryptocurrency price charts and analysis</p>
         </div>
 
         {/* Coin Selection */}

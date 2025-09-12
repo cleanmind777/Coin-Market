@@ -61,7 +61,7 @@ export default function AnalyticsPage() {
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <Activity className="h-8 w-8 animate-pulse mx-auto mb-4" />
-            <p className="text-muted-foreground">Loading analytics...</p>
+            <p className="text-slate-300">Loading analytics...</p>
           </div>
         </div>
       </MainLayout>
@@ -73,8 +73,8 @@ export default function AnalyticsPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold">Analytics</h1>
-          <p className="text-muted-foreground">Comprehensive cryptocurrency market analysis</p>
+          <h1 className="text-3xl font-bold text-slate-100">Analytics</h1>
+          <p className="text-slate-300">Comprehensive cryptocurrency market analysis</p>
         </div>
 
         {/* Market Overview Cards */}
@@ -222,6 +222,14 @@ export default function AnalyticsPage() {
                       <span className="text-sm font-medium text-muted-foreground">
                         #{index + 1}
                       </span>
+                      <img
+                        src={crypto.image || '/globe.svg'}
+                        alt={crypto.name}
+                        className="w-6 h-6 rounded-full object-cover"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = '/globe.svg';
+                        }}
+                      />
                       <div>
                         <div className="font-medium">{crypto.name}</div>
                         <div className="text-sm text-muted-foreground">

@@ -120,8 +120,8 @@ export default function PortfolioPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Portfolio</h1>
-            <p className="text-muted-foreground">Track your cryptocurrency investments</p>
+            <h1 className="text-3xl font-bold text-slate-100">Portfolio</h1>
+            <p className="text-slate-300">Track your cryptocurrency investments</p>
           </div>
           <Button onClick={() => setShowAddForm(true)}>
             <Plus className="h-4 w-4 mr-2" />

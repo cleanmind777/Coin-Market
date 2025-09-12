@@ -100,8 +100,8 @@ export default function WatchlistPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Watchlist</h1>
-            <p className="text-muted-foreground">Track your favorite cryptocurrencies</p>
+            <h1 className="text-3xl font-bold text-slate-100">Watchlist</h1>
+            <p className="text-slate-300">Track your favorite cryptocurrencies</p>
           </div>
           <Button onClick={() => setShowAddForm(true)}>
             <Plus className="h-4 w-4 mr-2" />

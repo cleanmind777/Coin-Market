@@ -66,14 +66,14 @@ export default function GlobalPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Global Market Statistics</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-3xl font-bold text-slate-100">Global Market Statistics</h1>
+            <p className="text-slate-300">
               Comprehensive overview of the cryptocurrency market
             </p>
           </div>
           <div className="flex items-center space-x-2">
             {lastUpdated && (
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-slate-300">
                 Last updated: {lastUpdated.toLocaleTimeString()}
               </p>
             )}

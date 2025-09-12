@@ -53,8 +53,8 @@ export default function SearchPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold">Search Cryptocurrencies</h1>
-          <p className="text-muted-foreground">Find any cryptocurrency by name or symbol</p>
+          <h1 className="text-3xl font-bold text-slate-100">Search Cryptocurrencies</h1>
+          <p className="text-slate-300">Find any cryptocurrency by name or symbol</p>
         </div>
 
         {/* Search Bar */}

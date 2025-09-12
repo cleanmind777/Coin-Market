@@ -137,8 +137,8 @@ export default function ActivityPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Activity Feed</h1>
-            <p className="text-muted-foreground">Track your recent activities and market events</p>
+            <h1 className="text-3xl font-bold text-slate-100">Activity Feed</h1>
+            <p className="text-slate-300">Track your recent activities and market events</p>
           </div>
           <div className="flex space-x-2">
             <Button variant="outline" onClick={clearAllActivities}>
