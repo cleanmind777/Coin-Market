@@ -53,8 +53,8 @@ export default function SearchPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold">Search Cryptocurrencies</h1>
-          <p className="text-muted-foreground">Find any cryptocurrency by name or symbol</p>
+          <h1 className="text-3xl font-bold text-slate-100">Search Cryptocurrencies</h1>
+          <p className="text-slate-300">Find any cryptocurrency by name or symbol</p>
         </div>
 
         {/* Search Bar */}
@@ -62,7 +62,7 @@ export default function SearchPage() {
           <CardContent className="pt-6">
             <div className="flex gap-4">
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <Input
                   placeholder="Search for cryptocurrencies (e.g., Bitcoin, BTC, Ethereum)..."
                   value={searchQuery}
@@ -91,11 +91,11 @@ export default function SearchPage() {
                 <div className="flex items-center justify-center py-8">
                   <div className="text-center">
                     <Search className="h-8 w-8 animate-pulse mx-auto mb-4" />
-                    <p className="text-muted-foreground">Searching...</p>
+                    <p className="text-slate-300">Searching...</p>
                   </div>
                 </div>
               ) : searchResults.length === 0 ? (
-                <div className="text-center py-8 text-muted-foreground">
+                <div className="text-center py-8 text-slate-400">
                   <Search className="h-12 w-12 mx-auto mb-4 opacity-50" />
                   <p>No results found for &quot;{searchQuery}&quot;</p>
                   <p className="text-sm">Try a different search term</p>
@@ -109,7 +109,7 @@ export default function SearchPage() {
                     >
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-2">
-                          <span className="text-sm font-medium text-muted-foreground">
+                          <span className="text-sm font-medium text-slate-400">
                             #{coin.market_cap_rank || 'N/A'}
                           </span>
                           <Image
@@ -122,9 +122,9 @@ export default function SearchPage() {
                         </div>
                         <div>
                           <div className="font-medium">{coin.name}</div>
-                          <div className="text-sm text-muted-foreground">
-                            {coin.symbol.toUpperCase()}
-                          </div>
+                            <div className="text-sm text-slate-400">
+                              {coin.symbol.toUpperCase()}
+                            </div>
                         </div>
                       </div>
 

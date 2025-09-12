@@ -61,7 +61,7 @@ export default function AnalyticsPage() {
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <Activity className="h-8 w-8 animate-pulse mx-auto mb-4" />
-            <p className="text-muted-foreground">Loading analytics...</p>
+            <p className="text-slate-300">Loading analytics...</p>
           </div>
         </div>
       </MainLayout>
@@ -73,8 +73,8 @@ export default function AnalyticsPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold">Analytics</h1>
-          <p className="text-muted-foreground">Comprehensive cryptocurrency market analysis</p>
+          <h1 className="text-3xl font-bold text-slate-100">Analytics</h1>
+          <p className="text-slate-300">Comprehensive cryptocurrency market analysis</p>
         </div>
 
         {/* Market Overview Cards */}
@@ -83,7 +83,7 @@ export default function AnalyticsPage() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Market Cap</CardTitle>
-                <BarChart3 className="h-4 w-4 text-muted-foreground" />
+                <BarChart3 className="h-4 w-4 text-slate-400" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
@@ -98,39 +98,39 @@ export default function AnalyticsPage() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">24h Volume</CardTitle>
-                <Activity className="h-4 w-4 text-muted-foreground" />
+                <Activity className="h-4 w-4 text-slate-400" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
                   {formatCurrency(globalData.data.total_volume.usd)}
                 </div>
-                <div className="text-xs text-muted-foreground">Trading volume</div>
+                <div className="text-xs text-slate-400">Trading volume</div>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Bitcoin Dominance</CardTitle>
-                <PieChartIcon className="h-4 w-4 text-muted-foreground" />
+                <PieChartIcon className="h-4 w-4 text-slate-400" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
                   {globalData.data.market_cap_percentage.btc.toFixed(1)}%
                 </div>
-                <div className="text-xs text-muted-foreground">Market share</div>
+                <div className="text-xs text-slate-400">Market share</div>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Active Cryptocurrencies</CardTitle>
-                <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                <TrendingUp className="h-4 w-4 text-slate-400" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
                   {globalData.data.active_cryptocurrencies.toLocaleString()}
                 </div>
-                <div className="text-xs text-muted-foreground">Total coins</div>
+                <div className="text-xs text-slate-400">Total coins</div>
               </CardContent>
             </Card>
           </div>
@@ -219,12 +219,20 @@ export default function AnalyticsPage() {
                     className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted/50 transition-colors"
                   >
                     <div className="flex items-center space-x-3">
-                      <span className="text-sm font-medium text-muted-foreground">
+                      <span className="text-sm font-medium text-slate-400">
                         #{index + 1}
                       </span>
+                      <img
+                        src={crypto.image || '/globe.svg'}
+                        alt={crypto.name}
+                        className="w-6 h-6 rounded-full object-cover"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = '/globe.svg';
+                        }}
+                      />
                       <div>
                         <div className="font-medium">{crypto.name}</div>
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-sm text-slate-400">
                           {crypto.symbol.toUpperCase()}
                         </div>
                       </div>
@@ -235,21 +243,21 @@ export default function AnalyticsPage() {
                         <div className="font-medium">
                           {formatCurrency(crypto.current_price)}
                         </div>
-                        <div className="text-sm text-muted-foreground">Price</div>
+                        <div className="text-sm text-slate-400">Price</div>
                       </div>
 
                       <div className="text-right">
                         <div className="font-medium">
                           {formatCurrency(crypto.market_cap)}
                         </div>
-                        <div className="text-sm text-muted-foreground">Market Cap</div>
+                        <div className="text-sm text-slate-400">Market Cap</div>
                       </div>
 
                       <div className="text-right">
                         <div className={`font-medium ${getChangeColor(crypto.price_change_percentage_24h)}`}>
                           {formatPercentage(crypto.price_change_percentage_24h)}
                         </div>
-                        <div className="text-sm text-muted-foreground">24h Change</div>
+                        <div className="text-sm text-slate-400">24h Change</div>
                       </div>
 
                       <Badge 

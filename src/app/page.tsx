@@ -77,7 +77,7 @@ export default function Dashboard() {
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <RefreshCw className="h-8 w-8 animate-spin mx-auto mb-4" />
-            <p className="text-muted-foreground">Loading market data...</p>
+            <p className="text-slate-300">Loading market data...</p>
           </div>
         </div>
       </MainLayout>
@@ -96,7 +96,7 @@ export default function Dashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">{error}</p>
+              <p className="text-slate-300 mb-4">{error}</p>
               <Button onClick={fetchData} className="w-full">
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Try Again
@@ -117,10 +117,10 @@ export default function Dashboard() {
             <div className="flex items-center space-x-3">
               <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
               <div>
-                <h3 className="text-sm font-semibold text-red-800 dark:text-red-200">
+                <h3 className="text-sm font-semibold text-red-200">
                   API Connection Failed
                 </h3>
-                <p className="text-sm text-red-700 dark:text-red-300">
+                <p className="text-sm text-red-300">
                   Unable to connect to CoinGecko API. Showing sample data for demonstration purposes.
                 </p>
               </div>
@@ -135,10 +135,10 @@ export default function Dashboard() {
                 <div className="h-2 w-2 bg-white rounded-full"></div>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-green-800 dark:text-green-200">
+                <h3 className="text-sm font-semibold text-green-200">
                   Live Data Connected
                 </h3>
-                <p className="text-sm text-green-700 dark:text-green-300">
+                <p className="text-sm text-green-300">
                   Successfully connected to CoinGecko API. Showing real-time cryptocurrency data.
                 </p>
               </div>

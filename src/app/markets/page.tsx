@@ -100,7 +100,7 @@ export default function MarketsPage() {
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <RefreshCw className="h-8 w-8 animate-spin mx-auto mb-4" />
-            <p className="text-muted-foreground">Loading market data...</p>
+            <p className="text-slate-300">Loading market data...</p>
           </div>
         </div>
       </MainLayout>
@@ -112,14 +112,14 @@ export default function MarketsPage() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold">Markets</h1>
-          <p className="text-muted-foreground">Explore all cryptocurrencies and their market data</p>
+          <h1 className="text-3xl font-bold text-slate-100">Markets</h1>
+          <p className="text-slate-300">Explore all cryptocurrencies and their market data</p>
         </div>
 
         {/* Search and Filters */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
+            <CardTitle className="flex items-center space-x-2 text-slate-100">
               <Filter className="h-5 w-5" />
               <span>Search & Filter</span>
             </CardTitle>
@@ -128,7 +128,7 @@ export default function MarketsPage() {
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
                   <Input
                     placeholder="Search cryptocurrencies..."
                     value={searchQuery}
@@ -189,12 +189,12 @@ export default function MarketsPage() {
 
         {/* Results Count */}
         <div className="flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-slate-300">
             Page {page} of {totalPages} • Showing {filteredCryptos.length} of ~{totalCoins} coins
           </p>
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Go to:</span>
+              <span className="text-sm text-slate-300">Go to:</span>
               <Input
                 type="number"
                 value={pageInput}

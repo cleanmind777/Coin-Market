@@ -55,8 +55,8 @@ export default function ExchangesPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Exchanges</h1>
-            <p className="text-muted-foreground">Top cryptocurrency exchanges with detailed information</p>
+            <h1 className="text-3xl font-bold text-slate-100">Exchanges</h1>
+            <p className="text-slate-300">Top cryptocurrency exchanges with detailed information</p>
           </div>
           <Button onClick={fetchExchanges} disabled={loading}>
             <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
@@ -66,7 +66,7 @@ export default function ExchangesPage() {
 
         {/* Pagination Controls */}
         <div className="flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-slate-300">
             Page {page} of {totalPages} • Showing {exchanges.length} exchanges
           </p>
           <div className="flex items-center gap-2">

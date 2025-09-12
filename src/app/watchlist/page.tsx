@@ -100,8 +100,8 @@ export default function WatchlistPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Watchlist</h1>
-            <p className="text-muted-foreground">Track your favorite cryptocurrencies</p>
+            <h1 className="text-3xl font-bold text-slate-100">Watchlist</h1>
+            <p className="text-slate-300">Track your favorite cryptocurrencies</p>
           </div>
           <Button onClick={() => setShowAddForm(true)}>
             <Plus className="h-4 w-4 mr-2" />
@@ -113,7 +113,7 @@ export default function WatchlistPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
               <Input
                 placeholder="Search your watchlist..."
                 value={searchQuery}
@@ -158,7 +158,7 @@ export default function WatchlistPage() {
           <CardContent>
             <div className="space-y-4">
               {filteredWatchlist.length === 0 ? (
-                <div className="text-center py-8 text-muted-foreground">
+                <div className="text-center py-8 text-slate-400">
                   <Star className="h-12 w-12 mx-auto mb-4 opacity-50" />
                   <p>
                     {searchQuery ? 'No coins match your search.' : 'Your watchlist is empty.'}
@@ -175,7 +175,7 @@ export default function WatchlistPage() {
                   >
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center space-x-2">
-                        <span className="text-sm font-medium text-muted-foreground">
+                        <span className="text-sm font-medium text-slate-400">
                           #{item.market_cap_rank || 'N/A'}
                         </span>
                         <Image
@@ -188,7 +188,7 @@ export default function WatchlistPage() {
                       </div>
                       <div>
                         <div className="font-medium">{item.name}</div>
-                        <div className="text-sm text-muted-foreground">{item.symbol}</div>
+                        <div className="text-sm text-slate-400">{item.symbol}</div>
                       </div>
                     </div>
 
@@ -197,21 +197,21 @@ export default function WatchlistPage() {
                         <div className="font-medium">
                           {formatCurrency(item.current_price)}
                         </div>
-                        <div className="text-sm text-muted-foreground">Price</div>
+                        <div className="text-sm text-slate-400">Price</div>
                       </div>
 
                       <div className="text-right">
                         <div className="font-medium">
                           {formatCurrency(item.market_cap)}
                         </div>
-                        <div className="text-sm text-muted-foreground">Market Cap</div>
+                        <div className="text-sm text-slate-400">Market Cap</div>
                       </div>
 
                       <div className="text-right">
                         <div className={`font-medium ${getChangeColor(item.price_change_percentage_24h)}`}>
                           {formatPercentage(item.price_change_percentage_24h)}
                         </div>
-                        <div className="text-sm text-muted-foreground">24h Change</div>
+                        <div className="text-sm text-slate-400">24h Change</div>
                       </div>
 
                       <div className="flex items-center space-x-2">

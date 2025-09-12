@@ -44,13 +44,13 @@ export function Header() {
         {/* Navigation and Actions */}
         <div className="flex items-center space-x-2">
           <Button variant="ghost" size="icon" className="hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
-            <Bell className="h-5 w-5" />
+            <Bell className="h-5 w-5 text-slate-100" />
           </Button>
           <Button variant="ghost" size="icon" className="hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
-            <User className="h-5 w-5" />
+            <User className="h-5 w-5 text-slate-100" />
           </Button>
           <Button variant="ghost" size="icon" className="hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
-            <Menu className="h-5 w-5" />
+            <Menu className="h-5 w-5 text-slate-100" />
           </Button>
         </div>
       </div>

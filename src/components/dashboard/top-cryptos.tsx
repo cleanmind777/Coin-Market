@@ -42,8 +42,8 @@ export function TopCryptos({ cryptos }: TopCryptosProps) {
           <TrendingUp className="h-6 w-6 text-blue-600 dark:text-blue-400" />
         </div>
         <div>
-          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">Top Cryptocurrencies</h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400">By market capitalization</p>
+          <h2 className="text-xl font-bold text-slate-100">Top Cryptocurrencies</h2>
+          <p className="text-sm text-slate-300">By market capitalization</p>
         </div>
       </div>
       
@@ -67,8 +67,8 @@ export function TopCryptos({ cryptos }: TopCryptosProps) {
                 />
               </div>
               <div>
-                <div className="font-semibold text-slate-900 dark:text-slate-100">{crypto.name}</div>
-                <div className="text-sm text-slate-500 dark:text-slate-400">
+                <div className="font-semibold text-slate-100">{crypto.name}</div>
+                <div className="text-sm text-slate-300">
                   {crypto.symbol.toUpperCase()}
                 </div>
               </div>
@@ -76,45 +76,45 @@ export function TopCryptos({ cryptos }: TopCryptosProps) {
             
             <div className="flex items-center space-x-6">
               <div className="text-right">
-                <div className="font-semibold text-slate-900 dark:text-slate-100">
+                <div className="font-semibold text-slate-100">
                   {formatCurrency(crypto.current_price)}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">Price</div>
+                <div className="text-xs text-slate-300">Price</div>
               </div>
               
               <div className="text-right">
-                <div className="font-semibold text-slate-900 dark:text-slate-100">
+                <div className="font-semibold text-slate-100">
                   {formatNumber(crypto.market_cap)}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">Market Cap</div>
+                <div className="text-xs text-slate-300">Market Cap</div>
               </div>
               
               <div className="text-right">
-                <div className="font-semibold text-slate-900 dark:text-slate-100">
+                <div className="font-semibold text-slate-100">
                   {formatNumber(crypto.total_volume)}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">Volume (24h)</div>
+                <div className="text-xs text-slate-300">Volume (24h)</div>
               </div>
               
               <div className="text-right">
                 <div className={`font-semibold ${getChangeColor(crypto.price_change_percentage_1h_in_currency || 0)}`}>
                   {formatPercentage((crypto.price_change_percentage_1h_in_currency || 0))}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">1h</div>
+                <div className="text-xs text-slate-300">1h</div>
               </div>
 
               <div className="text-right">
                 <div className={`font-semibold ${getChangeColor(crypto.price_change_percentage_24h || 0)}`}>
                   {formatPercentage(crypto.price_change_percentage_24h || 0)}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">24h</div>
+                <div className="text-xs text-slate-300">24h</div>
               </div>
               
               <div className="text-right">
                 <div className={`font-semibold ${getChangeColor(crypto.price_change_percentage_7d)}`}>
                   {formatPercentage(crypto.price_change_percentage_7d)}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">7d</div>
+                <div className="text-xs text-slate-300">7d</div>
               </div>
             </div>
           </div>
