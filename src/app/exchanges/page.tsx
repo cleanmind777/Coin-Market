@@ -5,11 +5,11 @@ import { MainLayout } from '@/components/layout/main-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { RefreshCw, Building, Globe, Shield, ExternalLink, TrendingUp } from 'lucide-react';
-import { CoinGeckoService } from '@/lib/coingecko';
+import { RefreshCw, Building, Globe, Shield, ExternalLink } from 'lucide-react';
+import { CoinGeckoService, Exchange } from '@/lib/coingecko';
 
 export default function ExchangesPage() {
-  const [exchanges, setExchanges] = useState<any[]>([]);
+  const [exchanges, setExchanges] = useState<Exchange[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const perPage = 20;

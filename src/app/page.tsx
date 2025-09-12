@@ -8,14 +8,14 @@ import { TopCryptos } from '@/components/dashboard/top-cryptos';
 import { ExchangesOverview } from '@/components/dashboard/exchanges-overview';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CoinGeckoService, GlobalData, TrendingData, CryptoCurrency } from '@/lib/coingecko';
-import { RefreshCw, AlertCircle, TrendingUp } from 'lucide-react';
+import { CoinGeckoService, GlobalData, TrendingData, CryptoCurrency, Exchange } from '@/lib/coingecko';
+import { RefreshCw, AlertCircle } from 'lucide-react';
 
 export default function Dashboard() {
   const [globalData, setGlobalData] = useState<GlobalData | null>(null);
   const [trendingData, setTrendingData] = useState<TrendingData | null>(null);
   const [topCryptos, setTopCryptos] = useState<CryptoCurrency[]>([]);
-  const [exchanges, setExchanges] = useState<any[]>([]);
+  const [exchanges, setExchanges] = useState<Exchange[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [usingMockData, setUsingMockData] = useState(false);

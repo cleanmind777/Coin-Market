@@ -4,12 +4,10 @@ import { useEffect, useState } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { formatCurrency, formatPercentage, getChangeColor } from '@/lib/utils';
+import { formatCurrency } from '@/lib/utils';
 import { CoinGeckoService, MarketChartData } from '@/lib/coingecko';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from 'recharts';
-import { Search, TrendingUp, BarChart3 } from 'lucide-react';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
+import { TrendingUp, BarChart3 } from 'lucide-react';
 
 export default function ChartsPage() {
   const [selectedCoin, setSelectedCoin] = useState('bitcoin');
@@ -101,7 +99,7 @@ export default function ChartsPage() {
                 <Button
                   key={range.value}
                   variant={timeRange === range.value ? 'default' : 'outline'}
-                  onClick={() => setTimeRange(range.value as any)}
+                  onClick={() => setTimeRange(range.value as '1' | '7' | '30' | '90' | '365' | 'max')}
                 >
                   {range.label}
                 </Button>

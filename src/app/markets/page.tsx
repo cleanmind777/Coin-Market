@@ -6,7 +6,6 @@ import { TopCryptos } from '@/components/dashboard/top-cryptos';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
 import { CoinGeckoService, CryptoCurrency } from '@/lib/coingecko';
 import { Search, Filter, RefreshCw, TrendingUp, TrendingDown } from 'lucide-react';
 

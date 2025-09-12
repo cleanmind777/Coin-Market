@@ -3,9 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card } from '@/components/ui/card';
 import { Search, Menu, Bell, User, TrendingUp } from 'lucide-react';
-import Image from 'next/image';
 
 export function Header() {
   const [searchQuery, setSearchQuery] = useState('');

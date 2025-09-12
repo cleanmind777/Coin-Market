@@ -14,9 +14,7 @@ import {
   ArrowRight,
   CheckCircle,
   Star,
-  Activity,
   Wallet,
-  Search,
   Menu,
   X
 } from 'lucide-react';
@@ -359,7 +357,7 @@ export default function LandingPage() {
                     ))}
                   </div>
                   <p className="text-slate-600 dark:text-slate-400 mb-4 italic">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </p>
                   <div>
                     <div className="font-semibold text-slate-900 dark:text-slate-100">

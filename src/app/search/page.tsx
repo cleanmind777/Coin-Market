@@ -1,14 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { formatCurrency, formatPercentage, getChangeColor } from '@/lib/utils';
 import { CoinGeckoService } from '@/lib/coingecko';
-import { Search, Star, TrendingUp, TrendingDown } from 'lucide-react';
+import { Search, Star } from 'lucide-react';
 import Image from 'next/image';
 
 interface SearchResult {

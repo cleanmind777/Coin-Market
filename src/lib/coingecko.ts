@@ -1,10 +1,10 @@
-import { CoinGeckoClient } from 'coingecko-api-v3';
+// import { CoinGeckoClient } from 'coingecko-api-v3';
 
 // Initialize CoinGecko client with better error handling
-const client = new CoinGeckoClient({
-  timeout: 20000,
-  autoRetry: true,
-});
+// const client = new CoinGeckoClient({
+//   timeout: 20000,
+//   autoRetry: true,
+// });
 
 // Types for our application
 export interface CryptoCurrency {
@@ -286,7 +286,7 @@ export class CoinGeckoService {
   }
 
   // Exchanges list
-  static async getExchanges(page: number = 1, per_page: number = 20): Promise<any[]> {
+  static async getExchanges(page: number = 1, per_page: number = 20): Promise<Exchange[]> {
     try {
       const resp = await fetch(`/api/coingecko/exchanges?page=${page}&per_page=${per_page}`);
       if (!resp.ok) throw new Error(`Status ${resp.status}`);
@@ -325,7 +325,7 @@ export class CoinGeckoService {
         throw new Error(`API request failed: ${response.status}`);
       }
       const data = await response.json();
-      const normalized = (data as any[]).map((c) => ({
+      const normalized = (data as CryptoCurrency[]).map((c) => ({
         ...c,
         price_change_percentage_1h_in_currency: c.price_change_percentage_1h_in_currency ?? c.price_change_percentage_1h_in_currency ?? null,
         price_change_percentage_24h: c.price_change_percentage_24h ?? c.price_change_percentage_24h_in_currency ?? null,
@@ -342,7 +342,7 @@ export class CoinGeckoService {
   }
 
   // Get specific cryptocurrency details
-  static async getCryptoDetails(id: string): Promise<any> {
+  static async getCryptoDetails(id: string): Promise<CryptoCurrency> {
     try {
       console.log(`Fetching detailed data for ${id} from API route...`);
       const response = await fetch(`/api/coingecko/coin/${id}`);
@@ -384,7 +384,7 @@ export class CoinGeckoService {
   }
 
   // Search for cryptocurrencies
-  static async searchCryptos(query: string): Promise<any> {
+  static async searchCryptos(query: string): Promise<{ coins: Array<{ id: string; name: string; symbol: string; thumb: string; market_cap_rank: number }> }> {
     try {
       const response = await fetch(`/api/coingecko/search?query=${encodeURIComponent(query)}`);
       if (!response.ok) {
@@ -423,7 +423,7 @@ export class CoinGeckoService {
     include_24hr_vol: boolean = true,
     include_24hr_change: boolean = true,
     include_last_updated_at: boolean = true
-  ): Promise<any> {
+  ): Promise<Record<string, { usd: number; usd_market_cap: number; usd_24h_vol: number; usd_24h_change: number; last_updated_at: number }>> {
     try {
       const params = new URLSearchParams({
         ids: ids.join(','),
@@ -445,7 +445,7 @@ export class CoinGeckoService {
         console.log('This is expected in development if the API is not accessible.');
       }
       // Return mock price data for requested IDs
-      const mockPriceData: any = {};
+      const mockPriceData: Record<string, { usd: number; usd_market_cap: number; usd_24h_vol: number; usd_24h_change: number; last_updated_at: number }> = {};
       ids.forEach(id => {
         const crypto = mockCryptoData.find(c => c.id === id);
         if (crypto) {
@@ -481,7 +481,7 @@ export class CoinGeckoService {
   }
 
   // Get coin list
-  static async getCoinList(): Promise<any[]> {
+  static async getCoinList(): Promise<Array<{ id: string; symbol: string; name: string }>> {
     try {
       const response = await fetch('/api/coingecko/coin-list');
       if (!response.ok) {

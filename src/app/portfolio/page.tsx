@@ -5,7 +5,6 @@ import { MainLayout } from '@/components/layout/main-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
 import { formatCurrency, formatPercentage, getChangeColor } from '@/lib/utils';
 import { Plus, Trash2, Edit, TrendingUp, TrendingDown, Wallet } from 'lucide-react';
 
