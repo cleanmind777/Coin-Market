@@ -90,6 +90,79 @@ export interface MarketChartData {
   total_volumes: Array<[number, number]>;
 }
 
+export interface Exchange {
+  id: string;
+  name: string;
+  image: string;
+  trust_score: number;
+  trust_score_rank: number;
+  trade_volume_24h_btc: number | null;
+  trade_volume_24h_btc_normalized: number | null;
+  year_established: number | null;
+  country: string | null;
+  description: string | null;
+  url: string | null;
+  has_trading_incentive: boolean;
+  centralized: boolean;
+  public_interest_score: number;
+  market_data: {
+    price_change_percentage_24h: number;
+    price_change_percentage_7d: number;
+    price_change_percentage_30d: number;
+  };
+  tickers: Array<{
+    base: string;
+    target: string;
+    market: {
+      name: string;
+      identifier: string;
+      has_trading_incentive: boolean;
+    };
+    last: number;
+    volume: number;
+    converted_last: {
+      btc: number;
+      eth: number;
+      usd: number;
+    };
+    converted_volume: {
+      btc: number;
+      eth: number;
+      usd: number;
+    };
+    trust_score: string;
+    bid_ask_spread_percentage: number | null;
+    timestamp: string;
+    last_traded_at: string;
+    last_fetch_at: string;
+    is_anomaly: boolean;
+    is_stale: boolean;
+    trade_url: string | null;
+    token_info_url: string | null;
+    coin_id: string;
+    target_coin_id: string;
+  }>;
+  status_updates: Array<{
+    description: string;
+    category: string;
+    created_at: string;
+    user: string;
+    user_title: string;
+    pin: boolean;
+    project: {
+      type: string;
+      id: string;
+      name: string;
+      symbol: string;
+      image: {
+        thumb: string;
+        small: string;
+        large: string;
+      };
+    };
+  }>;
+}
+
 // Mock data for fallback when API fails
 const mockGlobalData: GlobalData = {
   data: {
@@ -327,10 +400,10 @@ export class CoinGeckoService {
       const data = await response.json();
       const normalized = (data as CryptoCurrency[]).map((c) => ({
         ...c,
-        price_change_percentage_1h_in_currency: c.price_change_percentage_1h_in_currency ?? c.price_change_percentage_1h_in_currency ?? null,
-        price_change_percentage_24h: c.price_change_percentage_24h ?? c.price_change_percentage_24h_in_currency ?? null,
-        price_change_percentage_7d: c.price_change_percentage_7d ?? c.price_change_percentage_7d_in_currency ?? null,
-        price_change_percentage_30d: c.price_change_percentage_30d ?? c.price_change_percentage_30d_in_currency ?? null,
+        price_change_percentage_1h_in_currency: c.price_change_percentage_1h_in_currency ?? null,
+        price_change_percentage_24h: c.price_change_percentage_24h ?? null,
+        price_change_percentage_7d: c.price_change_percentage_7d ?? null,
+        price_change_percentage_30d: c.price_change_percentage_30d ?? null,
       }));
       console.log(`Successfully fetched ${normalized.length} cryptocurrencies:`, normalized.slice(0, 3));
       return normalized as unknown as CryptoCurrency[];
@@ -423,7 +496,7 @@ export class CoinGeckoService {
     include_24hr_vol: boolean = true,
     include_24hr_change: boolean = true,
     include_last_updated_at: boolean = true
-  ): Promise<Record<string, { usd: number; usd_market_cap: number; usd_24h_vol: number; usd_24h_change: number; last_updated_at: number }>> {
+  ): Promise<Record<string, { usd: number; usd_market_cap?: number; usd_24h_vol?: number; usd_24h_change?: number; last_updated_at?: number }>> {
     try {
       const params = new URLSearchParams({
         ids: ids.join(','),
@@ -445,7 +518,7 @@ export class CoinGeckoService {
         console.log('This is expected in development if the API is not accessible.');
       }
       // Return mock price data for requested IDs
-      const mockPriceData: Record<string, { usd: number; usd_market_cap: number; usd_24h_vol: number; usd_24h_change: number; last_updated_at: number }> = {};
+      const mockPriceData: Record<string, { usd: number; usd_market_cap?: number; usd_24h_vol?: number; usd_24h_change?: number; last_updated_at?: number }> = {};
       ids.forEach(id => {
         const crypto = mockCryptoData.find(c => c.id === id);
         if (crypto) {
@@ -453,7 +526,7 @@ export class CoinGeckoService {
             usd: crypto.current_price,
             usd_market_cap: include_market_cap ? crypto.market_cap : undefined,
             usd_24h_vol: include_24hr_vol ? crypto.total_volume : undefined,
-            usd_24h_change: include_24hr_change ? crypto.price_change_percentage_24h : undefined,
+            usd_24h_change: include_24hr_change ? (crypto.price_change_percentage_24h ?? 0) : undefined,
             last_updated_at: include_last_updated_at ? 1700000000 : undefined
           };
         }

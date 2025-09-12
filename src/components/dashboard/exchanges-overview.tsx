@@ -3,28 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Building, Globe, Shield, ExternalLink } from 'lucide-react';
-
-interface Exchange {
-  id: string;
-  name: string;
-  image: string;
-  trust_score: number;
-  trust_score_rank: number;
-  trade_volume_24h_btc: number;
-  trade_volume_24h_btc_normalized: number;
-  year_established: number;
-  country: string;
-  description: string;
-  url: string;
-  has_trading_incentive: boolean;
-  centralized: boolean;
-  public_interest_score: number;
-  market_data: {
-    price_change_percentage_24h: number;
-    price_change_percentage_7d: number;
-    price_change_percentage_30d: number;
-  };
-}
+import { Exchange } from '@/lib/coingecko';
 
 interface ExchangesOverviewProps {
   exchanges: Exchange[];

@@ -16,7 +16,6 @@ interface SearchResult {
   symbol: string;
   market_cap_rank: number;
   thumb: string;
-  large: string;
 }
 
 export default function SearchPage() {
