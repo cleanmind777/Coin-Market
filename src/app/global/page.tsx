@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { formatCurrency, formatNumber, formatPercentage, getChangeColor } from '@/lib/utils';
+import { formatCurrency, formatPercentage, getChangeColor } from '@/lib/utils';
 import { CoinGeckoService, GlobalData } from '@/lib/coingecko';
 import { RefreshCw, Globe, TrendingUp, TrendingDown, DollarSign, BarChart3, Activity } from 'lucide-react';
 

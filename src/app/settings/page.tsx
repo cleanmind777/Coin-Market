@@ -4,9 +4,7 @@ import { useState, useEffect } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import { Settings, User, Bell, Palette, Shield, Database, Globe } from 'lucide-react';
+import { User, Bell, Palette, Shield, Globe } from 'lucide-react';
 
 export default function SettingsPage() {
   const [currentDate, setCurrentDate] = useState<string>('');
@@ -38,11 +36,11 @@ export default function SettingsPage() {
     setCurrentDate(new Date().toLocaleDateString());
   }, []);
 
-  const handleSettingChange = (category: string, key: string, value: any) => {
+  const handleSettingChange = (category: string, key: string, value: string | boolean | number) => {
     setSettings(prev => ({
       ...prev,
       [category]: {
-        ...(prev[category as keyof typeof prev] as Record<string, any>),
+        ...(prev[category as keyof typeof prev] as Record<string, string | boolean | number>),
         [key]: value,
       },
     }));

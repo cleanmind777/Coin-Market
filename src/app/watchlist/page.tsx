@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { formatCurrency, formatPercentage, getChangeColor } from '@/lib/utils';
-import { Star, Search, Plus, Trash2, TrendingUp, TrendingDown } from 'lucide-react';
+import { Star, Search, Plus, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 
 interface WatchlistItem {
