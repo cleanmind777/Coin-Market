@@ -77,7 +77,7 @@ export default function Dashboard() {
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <RefreshCw className="h-8 w-8 animate-spin mx-auto mb-4" />
-            <p className="text-muted-foreground">Loading market data...</p>
+            <p className="text-slate-300">Loading market data...</p>
           </div>
         </div>
       </MainLayout>
@@ -96,7 +96,7 @@ export default function Dashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">{error}</p>
+              <p className="text-slate-300 mb-4">{error}</p>
               <Button onClick={fetchData} className="w-full">
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Try Again

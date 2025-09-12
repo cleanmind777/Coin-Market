@@ -123,7 +123,7 @@ export default function ChartsPage() {
               <div className="flex items-center justify-center h-96">
                 <div className="text-center">
                   <BarChart3 className="h-8 w-8 animate-pulse mx-auto mb-4" />
-                  <p className="text-muted-foreground">Loading chart data...</p>
+                  <p className="text-slate-300">Loading chart data...</p>
                 </div>
               </div>
             ) : chartData ? (
@@ -151,7 +151,7 @@ export default function ChartsPage() {
               <div className="flex items-center justify-center h-96">
                 <div className="text-center">
                   <BarChart3 className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-muted-foreground">No chart data available</p>
+                  <p className="text-slate-300">No chart data available</p>
                 </div>
               </div>
             )}
@@ -201,19 +201,19 @@ export default function ChartsPage() {
                   <div className="text-2xl font-bold">
                     {chartData.prices.length}
                   </div>
-                  <div className="text-sm text-muted-foreground">Data Points</div>
+                  <div className="text-sm text-slate-400">Data Points</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold">
                     {formatCurrency(Math.min(...chartData.prices.map(([, price]) => price)))}
                   </div>
-                  <div className="text-sm text-muted-foreground">Lowest Price</div>
+                  <div className="text-sm text-slate-400">Lowest Price</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold">
                     {formatCurrency(Math.max(...chartData.prices.map(([, price]) => price)))}
                   </div>
-                  <div className="text-sm text-muted-foreground">Highest Price</div>
+                  <div className="text-sm text-slate-400">Highest Price</div>
                 </div>
               </div>
             </CardContent>

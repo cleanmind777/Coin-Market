@@ -37,7 +37,7 @@ export default function GlobalPage() {
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
             <RefreshCw className="h-8 w-8 animate-spin mx-auto mb-4" />
-            <p className="text-muted-foreground">Loading global market data...</p>
+            <p className="text-slate-300">Loading global market data...</p>
           </div>
         </div>
       </MainLayout>
@@ -49,7 +49,7 @@ export default function GlobalPage() {
       <MainLayout>
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <p className="text-muted-foreground mb-4">Failed to load global data</p>
+            <p className="text-slate-300 mb-4">Failed to load global data</p>
             <Button onClick={fetchGlobalData}>Try Again</Button>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function GlobalPage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Market Cap</CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
+              <DollarSign className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -109,13 +109,13 @@ export default function GlobalPage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">24h Trading Volume</CardTitle>
-              <BarChart3 className="h-4 w-4 text-muted-foreground" />
+              <BarChart3 className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {formatCurrency(data.total_volume.usd)}
               </div>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-slate-400">
                 Volume/Market Cap: {((data.total_volume.usd / data.total_market_cap.usd) * 100).toFixed(2)}%
               </div>
             </CardContent>
@@ -124,13 +124,13 @@ export default function GlobalPage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Active Cryptocurrencies</CardTitle>
-              <Globe className="h-4 w-4 text-muted-foreground" />
+              <Globe className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {data.active_cryptocurrencies.toLocaleString()}
               </div>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-slate-400">
                 {data.markets} markets
               </div>
             </CardContent>
@@ -139,13 +139,13 @@ export default function GlobalPage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Market Status</CardTitle>
-              <Activity className="h-4 w-4 text-muted-foreground" />
+              <Activity className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {marketCapChange > 0 ? 'Bullish' : 'Bearish'}
               </div>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-slate-400">
                 24h market sentiment
               </div>
             </CardContent>
@@ -167,7 +167,7 @@ export default function GlobalPage() {
                   </div>
                   <div className="text-right">
                     <div className="font-medium">{data.market_cap_percentage.btc.toFixed(1)}%</div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-slate-400">
                       {formatCurrency(data.total_market_cap.usd * (data.market_cap_percentage.btc / 100))}
                     </div>
                   </div>
@@ -180,7 +180,7 @@ export default function GlobalPage() {
                   </div>
                   <div className="text-right">
                     <div className="font-medium">{data.market_cap_percentage.eth.toFixed(1)}%</div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-slate-400">
                       {formatCurrency(data.total_market_cap.usd * (data.market_cap_percentage.eth / 100))}
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function GlobalPage() {
                     <div className="font-medium">
                       {(100 - data.market_cap_percentage.btc - data.market_cap_percentage.eth).toFixed(1)}%
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-slate-400">
                       {formatCurrency(data.total_market_cap.usd * ((100 - data.market_cap_percentage.btc - data.market_cap_percentage.eth) / 100))}
                     </div>
                   </div>
@@ -211,23 +211,23 @@ export default function GlobalPage() {
             <CardContent>
               <div className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Ongoing ICOs</span>
+                  <span className="text-slate-400">Ongoing ICOs</span>
                   <span className="font-medium">{data.ongoing_icos}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Upcoming ICOs</span>
+                  <span className="text-slate-400">Upcoming ICOs</span>
                   <span className="font-medium">{data.upcoming_icos}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Ended ICOs</span>
+                  <span className="text-slate-400">Ended ICOs</span>
                   <span className="font-medium">{data.ended_icos}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Total Markets</span>
+                  <span className="text-slate-400">Total Markets</span>
                   <span className="font-medium">{data.markets}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Last Updated</span>
+                  <span className="text-slate-400">Last Updated</span>
                   <span className="font-medium">
                     {new Date(data.updated_at).toLocaleString()}
                   </span>

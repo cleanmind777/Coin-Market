@@ -134,7 +134,7 @@ export default function PortfolioPage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Value</CardTitle>
-              <Wallet className="h-4 w-4 text-muted-foreground" />
+                <Wallet className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{formatCurrency(totalValue)}</div>
@@ -218,7 +218,7 @@ export default function PortfolioPage() {
           <CardContent>
             <div className="space-y-4">
               {portfolio.length === 0 ? (
-                <div className="text-center py-8 text-muted-foreground">
+                <div className="text-center py-8 text-slate-400">
                   <Wallet className="h-12 w-12 mx-auto mb-4 opacity-50" />
                   <p>No assets in your portfolio yet.</p>
                   <p className="text-sm">Add your first cryptocurrency to get started.</p>
@@ -232,14 +232,14 @@ export default function PortfolioPage() {
                     <div className="flex items-center space-x-4">
                       <div>
                         <div className="font-medium">{item.name}</div>
-                        <div className="text-sm text-muted-foreground">{item.symbol}</div>
+                        <div className="text-sm text-slate-400">{item.symbol}</div>
                       </div>
                     </div>
 
                     <div className="flex items-center space-x-6">
                       <div className="text-right">
                         <div className="font-medium">{formatCurrency(item.value)}</div>
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-sm text-slate-400">
                           {item.amount} × {formatCurrency(item.currentPrice)}
                         </div>
                       </div>
@@ -248,7 +248,7 @@ export default function PortfolioPage() {
                         <div className="font-medium">
                           {formatCurrency(item.buyPrice * item.amount)}
                         </div>
-                        <div className="text-sm text-muted-foreground">Cost Basis</div>
+                        <div className="text-sm text-slate-400">Cost Basis</div>
                       </div>
 
                       <div className="text-right">

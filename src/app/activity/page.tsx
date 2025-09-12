@@ -156,50 +156,50 @@ export default function ActivityPage() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Activities</CardTitle>
-              <Activity className="h-4 w-4 text-muted-foreground" />
+                <Activity className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{activities.length}</div>
-              <div className="text-xs text-muted-foreground">Recent activities</div>
+              <div className="text-xs text-slate-400">Recent activities</div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Price Alerts</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                <TrendingUp className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {activities.filter(a => a.type === 'price_alert').length}
               </div>
-              <div className="text-xs text-muted-foreground">Active alerts</div>
+              <div className="text-xs text-slate-400">Active alerts</div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Watchlist Updates</CardTitle>
-              <Star className="h-4 w-4 text-muted-foreground" />
+                <Star className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {activities.filter(a => a.type === 'watchlist').length}
               </div>
-              <div className="text-xs text-muted-foreground">Recent changes</div>
+              <div className="text-xs text-slate-400">Recent changes</div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Portfolio Updates</CardTitle>
-              <TrendingDown className="h-4 w-4 text-muted-foreground" />
+                <TrendingDown className="h-4 w-4 text-slate-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
                 {activities.filter(a => a.type === 'portfolio').length}
               </div>
-              <div className="text-xs text-muted-foreground">Value changes</div>
+              <div className="text-xs text-slate-400">Value changes</div>
             </CardContent>
           </Card>
         </div>
@@ -211,7 +211,7 @@ export default function ActivityPage() {
           </CardHeader>
           <CardContent>
             {activities.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">
+              <div className="text-center py-8 text-slate-400">
                 <Activity className="h-12 w-12 mx-auto mb-4 opacity-50" />
                 <p>No recent activities</p>
                 <p className="text-sm">Your activity feed will appear here</p>
@@ -236,7 +236,7 @@ export default function ActivityPage() {
                           </Badge>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-slate-400">
                             {formatTimeAgo(activity.timestamp)}
                           </span>
                           <Button
@@ -248,7 +248,7 @@ export default function ActivityPage() {
                           </Button>
                         </div>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-1">
+                        <p className="text-sm text-slate-400 mt-1">
                         {activity.description}
                       </p>
                       {activity.value && (

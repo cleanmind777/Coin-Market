@@ -134,7 +134,7 @@ export default function SettingsPage() {
                     <div className="font-medium">
                       {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-slate-400">
                       {key === 'priceAlerts' && 'Get notified when prices reach your targets'}
                       {key === 'portfolioUpdates' && 'Receive updates about your portfolio performance'}
                       {key === 'trendingCoins' && 'Get notified about trending cryptocurrencies'}
@@ -170,7 +170,7 @@ export default function SettingsPage() {
                     <div className="font-medium">
                       {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-slate-400">
                       {key === 'showMarketCap' && 'Display market capitalization data'}
                       {key === 'showVolume' && 'Show trading volume information'}
                       {key === 'showChange' && 'Display price change percentages'}
@@ -206,7 +206,7 @@ export default function SettingsPage() {
                     <div className="font-medium">
                       {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-slate-400">
                       {key === 'shareData' && 'Share anonymous usage data to improve the app'}
                       {key === 'analytics' && 'Allow analytics tracking for better insights'}
                       {key === 'crashReports' && 'Send crash reports to help improve stability'}
@@ -237,21 +237,21 @@ export default function SettingsPage() {
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <div className="font-medium">App Version</div>
-                <div className="text-sm text-muted-foreground">1.0.0</div>
+                <div className="text-sm text-slate-400">1.0.0</div>
               </div>
               <div>
                 <div className="font-medium">API Provider</div>
-                <div className="text-sm text-muted-foreground">CoinGecko API v3</div>
+                <div className="text-sm text-slate-400">CoinGecko API v3</div>
               </div>
               <div>
                 <div className="font-medium">Last Updated</div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-slate-400">
                   {currentDate || 'Loading...'}
                 </div>
               </div>
               <div>
                 <div className="font-medium">Data Refresh</div>
-                <div className="text-sm text-muted-foreground">Every 5 minutes</div>
+                <div className="text-sm text-slate-400">Every 5 minutes</div>
               </div>
             </div>
           </CardContent>
