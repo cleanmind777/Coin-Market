@@ -253,10 +253,17 @@ export default function AnalyticsPage() {
                       </div>
 
                       <div className="text-right">
-                        <div className={`font-medium ${getChangeColor(crypto.price_change_percentage_24h)}`}>
-                          {formatPercentage(crypto.price_change_percentage_24h)}
+                        <div className={`font-medium ${getChangeColor(crypto.price_change_percentage_24h || 0)}`}>
+                          {formatPercentage(crypto.price_change_percentage_24h || 0)}
                         </div>
                         <div className="text-sm text-slate-400">24h Change</div>
+                      </div>
+
+                      <div className="text-right">
+                        <div className={`font-medium ${getChangeColor(crypto.price_change_percentage_7d || 0)}`}>
+                          {formatPercentage(crypto.price_change_percentage_7d || 0)}
+                        </div>
+                        <div className="text-sm text-slate-400">7d Change</div>
                       </div>
 
                       <Badge 

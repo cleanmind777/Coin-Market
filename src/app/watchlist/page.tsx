@@ -17,6 +17,7 @@ interface WatchlistItem {
   image: string;
   current_price: number;
   price_change_percentage_24h: number;
+  price_change_percentage_7d: number;
   market_cap: number;
   market_cap_rank: number;
 }
@@ -37,6 +38,7 @@ export default function WatchlistPage() {
         image: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png',
         current_price: 65000,
         price_change_percentage_24h: 2.5,
+        price_change_percentage_7d: 8.2,
         market_cap: 1200000000000,
         market_cap_rank: 1,
       },
@@ -47,6 +49,7 @@ export default function WatchlistPage() {
         image: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png',
         current_price: 3500,
         price_change_percentage_24h: -1.2,
+        price_change_percentage_7d: 12.5,
         market_cap: 420000000000,
         market_cap_rank: 2,
       },
@@ -57,6 +60,7 @@ export default function WatchlistPage() {
         image: 'https://assets.coingecko.com/coins/images/4128/large/solana.png',
         current_price: 80,
         price_change_percentage_24h: 5.8,
+        price_change_percentage_7d: -3.2,
         market_cap: 35000000000,
         market_cap_rank: 5,
       },
@@ -80,6 +84,7 @@ export default function WatchlistPage() {
         image: 'https://via.placeholder.com/32x32',
         current_price: 0,
         price_change_percentage_24h: 0,
+        price_change_percentage_7d: 0,
         market_cap: 0,
         market_cap_rank: 0,
       };
@@ -212,6 +217,13 @@ export default function WatchlistPage() {
                           {formatPercentage(item.price_change_percentage_24h)}
                         </div>
                         <div className="text-sm text-slate-400">24h Change</div>
+                      </div>
+
+                      <div className="text-right">
+                        <div className={`font-medium ${getChangeColor(item.price_change_percentage_7d)}`}>
+                          {formatPercentage(item.price_change_percentage_7d)}
+                        </div>
+                        <div className="text-sm text-slate-400">7d Change</div>
                       </div>
 
                       <div className="flex items-center space-x-2">

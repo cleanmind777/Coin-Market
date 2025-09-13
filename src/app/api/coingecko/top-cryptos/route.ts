@@ -24,6 +24,22 @@ export async function GET(request: Request) {
     });
     
     console.log('API Route: Successfully fetched top cryptos data');
+    console.log('API Route: Sample data with all fields:', data.slice(0, 1).map(item => {
+      const coin = item as typeof item & {
+        price_change_percentage_7d_in_currency?: number;
+        price_change_percentage_1h_in_currency?: number;
+        price_change_percentage_30d_in_currency?: number;
+      };
+      return {
+        id: item.id,
+        name: item.name,
+        price_change_percentage_24h: item.price_change_percentage_24h,
+        price_change_percentage_7d_in_currency: coin.price_change_percentage_7d_in_currency,
+        price_change_percentage_1h_in_currency: coin.price_change_percentage_1h_in_currency,
+        price_change_percentage_30d_in_currency: coin.price_change_percentage_30d_in_currency,
+        all_price_change_fields: Object.keys(item).filter(key => key.includes('price_change')),
+      };
+    }));
     return NextResponse.json(data);
   } catch (error) {
     console.error('API Route: Error fetching top cryptos data:', error);
