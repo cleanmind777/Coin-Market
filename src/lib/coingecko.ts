@@ -210,7 +210,7 @@ export interface NFTCollection {
   number_of_unique_addresses_7d_percentage_change: number | null;
   number_of_unique_addresses_30d_percentage_change: number | null;
   total_supply: number | null;
-  number_of_owners: number | null;
+  number_of_owners?: number | null;
   created_at: string;
   updated_at: string;
   volume_24h: number | null;
@@ -234,60 +234,30 @@ export interface NFTCollection {
   total_supply_rank: number | null;
   created_at_rank: number | null;
   updated_at_rank: number | null;
-  market_cap_rank_24h_percentage_change: number | null;
-  floor_price_rank_24h_percentage_change: number | null;
-  volume_rank_24h_percentage_change: number | null;
-  number_of_unique_addresses_rank_24h_percentage_change: number | null;
-  number_of_owners_rank_24h_percentage_change: number | null;
-  average_sale_price_rank_24h_percentage_change: number | null;
-  total_supply_rank_24h_percentage_change: number | null;
-  created_at_rank_24h_percentage_change: number | null;
-  updated_at_rank_24h_percentage_change: number | null;
-  market_cap_rank_7d_percentage_change: number | null;
-  floor_price_rank_7d_percentage_change: number | null;
-  volume_rank_7d_percentage_change: number | null;
-  number_of_unique_addresses_rank_7d_percentage_change: number | null;
-  number_of_owners_rank_7d_percentage_change: number | null;
-  average_sale_price_rank_7d_percentage_change: number | null;
-  total_supply_rank_7d_percentage_change: number | null;
-  created_at_rank_7d_percentage_change: number | null;
-  updated_at_rank_7d_percentage_change: number | null;
-  market_cap_rank_30d_percentage_change: number | null;
-  floor_price_rank_30d_percentage_change: number | null;
-  volume_rank_30d_percentage_change: number | null;
-  number_of_unique_addresses_rank_30d_percentage_change: number | null;
-  number_of_owners_rank_30d_percentage_change: number | null;
-  average_sale_price_rank_30d_percentage_change: number | null;
-  total_supply_rank_30d_percentage_change: number | null;
-  created_at_rank_30d_percentage_change: number | null;
-  updated_at_rank_30d_percentage_change: number | null;
-  market_cap_rank_24h_percentage_change: number | null;
-  floor_price_rank_24h_percentage_change: number | null;
-  volume_rank_24h_percentage_change: number | null;
-  number_of_unique_addresses_rank_24h_percentage_change: number | null;
-  number_of_owners_rank_24h_percentage_change: number | null;
-  average_sale_price_rank_24h_percentage_change: number | null;
-  total_supply_rank_24h_percentage_change: number | null;
-  created_at_rank_24h_percentage_change: number | null;
-  updated_at_rank_24h_percentage_change: number | null;
-  market_cap_rank_7d_percentage_change: number | null;
-  floor_price_rank_7d_percentage_change: number | null;
-  volume_rank_7d_percentage_change: number | null;
-  number_of_unique_addresses_rank_7d_percentage_change: number | null;
-  number_of_owners_rank_7d_percentage_change: number | null;
-  average_sale_price_rank_7d_percentage_change: number | null;
-  total_supply_rank_7d_percentage_change: number | null;
-  created_at_rank_7d_percentage_change: number | null;
-  updated_at_rank_7d_percentage_change: number | null;
-  market_cap_rank_30d_percentage_change: number | null;
-  floor_price_rank_30d_percentage_change: number | null;
-  volume_rank_30d_percentage_change: number | null;
-  number_of_unique_addresses_rank_30d_percentage_change: number | null;
-  number_of_owners_rank_30d_percentage_change: number | null;
-  average_sale_price_rank_30d_percentage_change: number | null;
-  total_supply_rank_30d_percentage_change: number | null;
-  created_at_rank_30d_percentage_change: number | null;
-  updated_at_rank_30d_percentage_change: number | null;
+  // Additional fields that may be present in API response
+  floor_price_in_usd_24h_percentage_change?: number | null;
+  volume_in_usd_24h_percentage_change?: number | null;
+  one_day_sales?: number | null;
+  one_day_sales_24h_percentage_change?: number | null;
+  one_day_average_sale_price?: number | null;
+  one_day_average_sale_price_24h_percentage_change?: number | null;
+  user_favorites_count?: number | null;
+  ath?: {
+    native_currency: number;
+    usd: number;
+  };
+  ath_change_percentage?: {
+    native_currency: number;
+    usd: number;
+  };
+  ath_date?: {
+    native_currency: string;
+    usd: string;
+  };
+  explorers?: Array<{
+    name: string;
+    link: string;
+  }>;
 }
 
 export interface NFTListResponse {
@@ -850,7 +820,61 @@ export class CoinGeckoService {
         // Handle 500 errors (server errors) by falling back to mock data
         if (response.status >= 500) {
           console.warn(`Server error ${response.status}, falling back to mock data...`);
-          return mockNFTData.find(nft => nft.id === id) || mockNFTData[0];
+          const mockNFT = mockNFTData.find(nft => nft.id === id) || mockNFTData[0];
+          // Convert NFTCollectionBasic to NFTCollection by adding required fields
+          return {
+            ...mockNFT,
+            image: { thumb: '', small: '', large: '' },
+            description: null,
+            external_link: null,
+            homepage: null,
+            twitter: null,
+            discord: null,
+            telegram: null,
+            instagram: null,
+            medium: null,
+            reddit: null,
+            youtube: null,
+            facebook: null,
+            tiktok: null,
+            github: null,
+            linkedin: null,
+            whitepaper: null,
+            market_cap_usd: null,
+            floor_price_usd: null,
+            floor_price_24h_percentage_change: null,
+            floor_price_7d_percentage_change: null,
+            floor_price_30d_percentage_change: null,
+            market_cap_24h_percentage_change: null,
+            number_of_unique_addresses: null,
+            number_of_unique_addresses_24h_percentage_change: null,
+            number_of_unique_addresses_7d_percentage_change: null,
+            number_of_unique_addresses_30d_percentage_change: null,
+            total_supply: null,
+            created_at: '',
+            updated_at: '',
+            volume_24h: null,
+            volume_7d: null,
+            volume_30d: null,
+            volume_24h_percentage_change: null,
+            volume_7d_percentage_change: null,
+            volume_30d_percentage_change: null,
+            average_sale_price_24h: null,
+            average_sale_price_7d: null,
+            average_sale_price_30d: null,
+            average_sale_price_24h_percentage_change: null,
+            average_sale_price_7d_percentage_change: null,
+            average_sale_price_30d_percentage_change: null,
+            market_cap_rank: null,
+            floor_price_rank: null,
+            volume_rank: null,
+            number_of_unique_addresses_rank: null,
+            number_of_owners_rank: null,
+            average_sale_price_rank: null,
+            total_supply_rank: null,
+            created_at_rank: null,
+            updated_at_rank: null
+          } as NFTCollection;
         }
         throw new Error(`API request failed: ${response.status}`);
       }
@@ -860,7 +884,61 @@ export class CoinGeckoService {
     } catch (error) {
       console.error(`CoinGecko API failed for NFT collection details (${id}):`, error);
       console.warn('Falling back to mock data for NFT collection details');
-      return mockNFTData.find(nft => nft.id === id) || mockNFTData[0];
+      const mockNFT = mockNFTData.find(nft => nft.id === id) || mockNFTData[0];
+      // Convert NFTCollectionBasic to NFTCollection by adding required fields
+      return {
+        ...mockNFT,
+        image: { thumb: '', small: '', large: '' },
+        description: null,
+        external_link: null,
+        homepage: null,
+        twitter: null,
+        discord: null,
+        telegram: null,
+        instagram: null,
+        medium: null,
+        reddit: null,
+        youtube: null,
+        facebook: null,
+        tiktok: null,
+        github: null,
+        linkedin: null,
+        whitepaper: null,
+        market_cap_usd: null,
+        floor_price_usd: null,
+        floor_price_24h_percentage_change: null,
+        floor_price_7d_percentage_change: null,
+        floor_price_30d_percentage_change: null,
+        market_cap_24h_percentage_change: null,
+        number_of_unique_addresses: null,
+        number_of_unique_addresses_24h_percentage_change: null,
+        number_of_unique_addresses_7d_percentage_change: null,
+        number_of_unique_addresses_30d_percentage_change: null,
+        total_supply: null,
+        created_at: '',
+        updated_at: '',
+        volume_24h: null,
+        volume_7d: null,
+        volume_30d: null,
+        volume_24h_percentage_change: null,
+        volume_7d_percentage_change: null,
+        volume_30d_percentage_change: null,
+        average_sale_price_24h: null,
+        average_sale_price_7d: null,
+        average_sale_price_30d: null,
+        average_sale_price_24h_percentage_change: null,
+        average_sale_price_7d_percentage_change: null,
+        average_sale_price_30d_percentage_change: null,
+        market_cap_rank: null,
+        floor_price_rank: null,
+        volume_rank: null,
+        number_of_unique_addresses_rank: null,
+        number_of_owners_rank: null,
+        average_sale_price_rank: null,
+        total_supply_rank: null,
+        created_at_rank: null,
+        updated_at_rank: null
+      } as NFTCollection;
     }
   }
 
@@ -881,7 +959,61 @@ export class CoinGeckoService {
     } catch (error) {
       console.error(`CoinGecko API failed for NFT collection by contract (${platform}/${contractAddress}):`, error);
       console.warn('Falling back to mock data for NFT collection by contract');
-      return mockNFTData[0];
+      const mockNFT = mockNFTData[0];
+      // Convert NFTCollectionBasic to NFTCollection by adding required fields
+      return {
+        ...mockNFT,
+        image: { thumb: '', small: '', large: '' },
+        description: null,
+        external_link: null,
+        homepage: null,
+        twitter: null,
+        discord: null,
+        telegram: null,
+        instagram: null,
+        medium: null,
+        reddit: null,
+        youtube: null,
+        facebook: null,
+        tiktok: null,
+        github: null,
+        linkedin: null,
+        whitepaper: null,
+        market_cap_usd: null,
+        floor_price_usd: null,
+        floor_price_24h_percentage_change: null,
+        floor_price_7d_percentage_change: null,
+        floor_price_30d_percentage_change: null,
+        market_cap_24h_percentage_change: null,
+        number_of_unique_addresses: null,
+        number_of_unique_addresses_24h_percentage_change: null,
+        number_of_unique_addresses_7d_percentage_change: null,
+        number_of_unique_addresses_30d_percentage_change: null,
+        total_supply: null,
+        created_at: '',
+        updated_at: '',
+        volume_24h: null,
+        volume_7d: null,
+        volume_30d: null,
+        volume_24h_percentage_change: null,
+        volume_7d_percentage_change: null,
+        volume_30d_percentage_change: null,
+        average_sale_price_24h: null,
+        average_sale_price_7d: null,
+        average_sale_price_30d: null,
+        average_sale_price_24h_percentage_change: null,
+        average_sale_price_7d_percentage_change: null,
+        average_sale_price_30d_percentage_change: null,
+        market_cap_rank: null,
+        floor_price_rank: null,
+        volume_rank: null,
+        number_of_unique_addresses_rank: null,
+        number_of_owners_rank: null,
+        average_sale_price_rank: null,
+        total_supply_rank: null,
+        created_at_rank: null,
+        updated_at_rank: null
+      } as NFTCollection;
     }
   }
 }

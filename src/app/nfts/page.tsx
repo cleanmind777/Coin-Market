@@ -352,15 +352,15 @@ function NFTDetailsModal({ nft, onClose, loading, stripHtml }: NFTDetailsModalPr
               )}
             </div>
 
-            {/* Owners */}
+            {/* Unique Addresses */}
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-              <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Owners</h4>
+              <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Unique Addresses</h4>
               <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                {nft.number_of_owners ? formatNumber(nft.number_of_owners) : 'N/A'}
+                {nft.number_of_unique_addresses ? formatNumber(nft.number_of_unique_addresses) : 'N/A'}
               </div>
-              {nft.number_of_owners_24h_percentage_change !== null && (
-                <div className={`text-sm ${getChangeColor(nft.number_of_owners_24h_percentage_change)}`}>
-                  {formatPercentage(nft.number_of_owners_24h_percentage_change)} (24h)
+              {nft.number_of_unique_addresses_24h_percentage_change !== null && (
+                <div className={`text-sm ${getChangeColor(nft.number_of_unique_addresses_24h_percentage_change)}`}>
+                  {formatPercentage(nft.number_of_unique_addresses_24h_percentage_change)} (24h)
                 </div>
               )}
             </div>
