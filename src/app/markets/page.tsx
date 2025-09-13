@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { TopCryptos } from '@/components/dashboard/top-cryptos';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,7 +22,7 @@ export default function MarketsPage() {
   const [totalCoins, setTotalCoins] = useState(0);
   const [pageInput, setPageInput] = useState('1');
 
-  const fetchCryptos = async () => {
+  const fetchCryptos = useCallback(async () => {
     try {
       setLoading(true);
       const data = await CoinGeckoService.getTopCryptos(page, perPage);
@@ -36,11 +36,11 @@ export default function MarketsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [page, perPage]);
 
   useEffect(() => {
     fetchCryptos();
-  }, [page]);
+  }, [page, fetchCryptos]);
 
   useEffect(() => {
     setPageInput(page.toString());

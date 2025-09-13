@@ -398,14 +398,23 @@ export class CoinGeckoService {
         throw new Error(`API request failed: ${response.status}`);
       }
       const data = await response.json();
-      const normalized = (data as CryptoCurrency[]).map((c) => ({
-        ...c,
-        price_change_percentage_1h_in_currency: c.price_change_percentage_1h_in_currency ?? null,
-        price_change_percentage_24h: c.price_change_percentage_24h ?? null,
-        price_change_percentage_7d: c.price_change_percentage_7d ?? null,
-        price_change_percentage_30d: c.price_change_percentage_30d ?? null,
-      }));
-      console.log(`Successfully fetched ${normalized.length} cryptocurrencies:`, normalized.slice(0, 3));
+      console.log('Raw API data sample:', data.slice(0, 1));
+      const normalized = (data as CryptoCurrency[]).map((c) => {
+        const coin = c as CryptoCurrency & { 
+          price_change_percentage_1h_in_currency?: number;
+          price_change_percentage_7d_in_currency?: number;
+          price_change_percentage_30d_in_currency?: number;
+        };
+        return {
+          ...c,
+          price_change_percentage_1h_in_currency: coin.price_change_percentage_1h_in_currency ?? null,
+          price_change_percentage_24h: c.price_change_percentage_24h ?? null,
+          price_change_percentage_7d: coin.price_change_percentage_7d_in_currency ?? null,
+          price_change_percentage_30d: coin.price_change_percentage_30d_in_currency ?? null,
+        };
+      });
+      console.log(`Successfully fetched ${normalized.length} cryptocurrencies:`, normalized.slice(0, 1));
+      console.log('7d data sample:', normalized[0]?.price_change_percentage_7d);
       return normalized as unknown as CryptoCurrency[];
     } catch (error) {
       console.error('CoinGecko API failed for top cryptocurrencies:', error);

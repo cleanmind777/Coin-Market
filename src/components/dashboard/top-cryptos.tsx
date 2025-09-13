@@ -111,8 +111,8 @@ export function TopCryptos({ cryptos }: TopCryptosProps) {
               </div>
               
               <div className="text-right">
-                <div className={`font-semibold ${getChangeColor(crypto.price_change_percentage_7d)}`}>
-                  {formatPercentage(crypto.price_change_percentage_7d)}
+                <div className={`font-semibold ${getChangeColor(crypto.price_change_percentage_7d || 0)}`}>
+                  {formatPercentage(crypto.price_change_percentage_7d || 0)}
                 </div>
                 <div className="text-xs text-slate-300">7d</div>
               </div>
