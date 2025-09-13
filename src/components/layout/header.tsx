@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, Menu, Bell, User, TrendingUp } from 'lucide-react';
+import { Search, Menu, Bell, User } from 'lucide-react';
+import Image from 'next/image';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export function Header() {
@@ -15,8 +16,14 @@ export function Header() {
         {/* Logo and Brand */}
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-medium">
-              <TrendingUp className="h-6 w-6 text-white" />
+            <div className="h-10 w-10 rounded-xl flex items-center justify-center">
+              <Image
+                src="/logo.svg"
+                alt="Clean Mind Logo"
+                width={40}
+                height={40}
+                className="rounded-xl"
+              />
             </div>
             <div>
               <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">

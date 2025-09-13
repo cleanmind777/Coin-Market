@@ -13,7 +13,8 @@ import {
   Globe,
   PieChart,
   Activity,
-  Store
+  Store,
+  Image
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -23,6 +24,7 @@ const navigation = [
   { name: 'Dashboard', href: '/', icon: BarChart3 },
   { name: 'Markets', href: '/markets', icon: TrendingUp },
   { name: 'Exchanges', href: '/exchanges', icon: Store },
+  { name: 'NFTs', href: '/nfts', icon: Image },
   { name: 'Portfolio', href: '/portfolio', icon: Wallet },
   { name: 'Watchlist', href: '/watchlist', icon: Star },
   { name: 'Analytics', href: '/analytics', icon: Activity },

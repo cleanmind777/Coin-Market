@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
-  TrendingUp, 
   Shield, 
   Zap, 
   BarChart3, 
@@ -19,6 +18,7 @@ import {
   X
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LandingPage() {
   const [mounted, setMounted] = useState(false);
@@ -34,7 +34,7 @@ export default function LandingPage() {
 
   const features = [
     {
-      icon: TrendingUp,
+      icon: BarChart3,
       title: "Real-time Market Data",
       description: "Get live cryptocurrency prices, market caps, and trading volumes updated every second."
     },
@@ -101,8 +101,14 @@ export default function LandingPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link href="/landing" className="flex items-center space-x-2">
-                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                  <TrendingUp className="h-5 w-5 text-white" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/logo.svg"
+                    alt="Clean Mind Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-lg"
+                  />
                 </div>
                 <span className="text-xl font-bold text-slate-900 dark:text-slate-100">Clean Mind</span>
               </Link>
@@ -178,8 +184,14 @@ export default function LandingPage() {
           <div className="relative glass rounded-3xl p-8 md:p-12">
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mr-4 float">
-                  <TrendingUp className="h-8 w-8 text-white" />
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4 float">
+                  <Image
+                    src="/logo.svg"
+                    alt="Clean Mind Logo"
+                    width={64}
+                    height={64}
+                    className="rounded-2xl"
+                  />
                 </div>
                 <div>
                   <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-600 to-purple-600 dark:from-slate-100 dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
