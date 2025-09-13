@@ -163,6 +163,141 @@ export interface Exchange {
   }>;
 }
 
+// Basic NFT collection info from /nfts/list endpoint
+export interface NFTCollectionBasic {
+  id: string;
+  contract_address: string;
+  name: string;
+  asset_platform_id: string;
+  symbol: string;
+}
+
+// Detailed NFT collection info from /nfts/{id} endpoint
+export interface NFTCollection {
+  id: string;
+  contract_address: string;
+  name: string;
+  asset_platform_id: string;
+  symbol: string;
+  image: {
+    thumb: string;
+    small: string;
+    large: string;
+  };
+  description: string | null;
+  external_link: string | null;
+  homepage: string | null;
+  twitter: string | null;
+  discord: string | null;
+  telegram: string | null;
+  instagram: string | null;
+  medium: string | null;
+  reddit: string | null;
+  youtube: string | null;
+  facebook: string | null;
+  tiktok: string | null;
+  github: string | null;
+  linkedin: string | null;
+  whitepaper: string | null;
+  market_cap_usd: number | null;
+  floor_price_usd: number | null;
+  floor_price_24h_percentage_change: number | null;
+  floor_price_7d_percentage_change: number | null;
+  floor_price_30d_percentage_change: number | null;
+  market_cap_24h_percentage_change: number | null;
+  number_of_unique_addresses: number | null;
+  number_of_unique_addresses_24h_percentage_change: number | null;
+  number_of_unique_addresses_7d_percentage_change: number | null;
+  number_of_unique_addresses_30d_percentage_change: number | null;
+  total_supply: number | null;
+  number_of_owners: number | null;
+  created_at: string;
+  updated_at: string;
+  volume_24h: number | null;
+  volume_7d: number | null;
+  volume_30d: number | null;
+  volume_24h_percentage_change: number | null;
+  volume_7d_percentage_change: number | null;
+  volume_30d_percentage_change: number | null;
+  average_sale_price_24h: number | null;
+  average_sale_price_7d: number | null;
+  average_sale_price_30d: number | null;
+  average_sale_price_24h_percentage_change: number | null;
+  average_sale_price_7d_percentage_change: number | null;
+  average_sale_price_30d_percentage_change: number | null;
+  market_cap_rank: number | null;
+  floor_price_rank: number | null;
+  volume_rank: number | null;
+  number_of_unique_addresses_rank: number | null;
+  number_of_owners_rank: number | null;
+  average_sale_price_rank: number | null;
+  total_supply_rank: number | null;
+  created_at_rank: number | null;
+  updated_at_rank: number | null;
+  market_cap_rank_24h_percentage_change: number | null;
+  floor_price_rank_24h_percentage_change: number | null;
+  volume_rank_24h_percentage_change: number | null;
+  number_of_unique_addresses_rank_24h_percentage_change: number | null;
+  number_of_owners_rank_24h_percentage_change: number | null;
+  average_sale_price_rank_24h_percentage_change: number | null;
+  total_supply_rank_24h_percentage_change: number | null;
+  created_at_rank_24h_percentage_change: number | null;
+  updated_at_rank_24h_percentage_change: number | null;
+  market_cap_rank_7d_percentage_change: number | null;
+  floor_price_rank_7d_percentage_change: number | null;
+  volume_rank_7d_percentage_change: number | null;
+  number_of_unique_addresses_rank_7d_percentage_change: number | null;
+  number_of_owners_rank_7d_percentage_change: number | null;
+  average_sale_price_rank_7d_percentage_change: number | null;
+  total_supply_rank_7d_percentage_change: number | null;
+  created_at_rank_7d_percentage_change: number | null;
+  updated_at_rank_7d_percentage_change: number | null;
+  market_cap_rank_30d_percentage_change: number | null;
+  floor_price_rank_30d_percentage_change: number | null;
+  volume_rank_30d_percentage_change: number | null;
+  number_of_unique_addresses_rank_30d_percentage_change: number | null;
+  number_of_owners_rank_30d_percentage_change: number | null;
+  average_sale_price_rank_30d_percentage_change: number | null;
+  total_supply_rank_30d_percentage_change: number | null;
+  created_at_rank_30d_percentage_change: number | null;
+  updated_at_rank_30d_percentage_change: number | null;
+  market_cap_rank_24h_percentage_change: number | null;
+  floor_price_rank_24h_percentage_change: number | null;
+  volume_rank_24h_percentage_change: number | null;
+  number_of_unique_addresses_rank_24h_percentage_change: number | null;
+  number_of_owners_rank_24h_percentage_change: number | null;
+  average_sale_price_rank_24h_percentage_change: number | null;
+  total_supply_rank_24h_percentage_change: number | null;
+  created_at_rank_24h_percentage_change: number | null;
+  updated_at_rank_24h_percentage_change: number | null;
+  market_cap_rank_7d_percentage_change: number | null;
+  floor_price_rank_7d_percentage_change: number | null;
+  volume_rank_7d_percentage_change: number | null;
+  number_of_unique_addresses_rank_7d_percentage_change: number | null;
+  number_of_owners_rank_7d_percentage_change: number | null;
+  average_sale_price_rank_7d_percentage_change: number | null;
+  total_supply_rank_7d_percentage_change: number | null;
+  created_at_rank_7d_percentage_change: number | null;
+  updated_at_rank_7d_percentage_change: number | null;
+  market_cap_rank_30d_percentage_change: number | null;
+  floor_price_rank_30d_percentage_change: number | null;
+  volume_rank_30d_percentage_change: number | null;
+  number_of_unique_addresses_rank_30d_percentage_change: number | null;
+  number_of_owners_rank_30d_percentage_change: number | null;
+  average_sale_price_rank_30d_percentage_change: number | null;
+  total_supply_rank_30d_percentage_change: number | null;
+  created_at_rank_30d_percentage_change: number | null;
+  updated_at_rank_30d_percentage_change: number | null;
+}
+
+export interface NFTListResponse {
+  data: NFTCollectionBasic[];
+  total: number;
+  page: number;
+  per_page: number;
+  order: string;
+}
+
 // Mock data for fallback when API fails
 const mockGlobalData: GlobalData = {
   data: {
@@ -178,6 +313,44 @@ const mockGlobalData: GlobalData = {
     updated_at: 1700000000, // Fixed timestamp for consistency
   }
 };
+
+const mockNFTData: NFTCollectionBasic[] = [
+  {
+    id: 'bored-ape-yacht-club',
+    contract_address: '0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d',
+    name: 'Bored Ape Yacht Club',
+    asset_platform_id: 'ethereum',
+    symbol: 'BAYC'
+  },
+  {
+    id: 'cryptopunks',
+    contract_address: '0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb',
+    name: 'CryptoPunks',
+    asset_platform_id: 'ethereum',
+    symbol: 'PUNK'
+  },
+  {
+    id: 'mutant-ape-yacht-club',
+    contract_address: '0x60e4d786628fea6478f785a6d7e704777c86a7c6',
+    name: 'Mutant Ape Yacht Club',
+    asset_platform_id: 'ethereum',
+    symbol: 'MAYC'
+  },
+  {
+    id: 'otherdeeds',
+    contract_address: '0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258',
+    name: 'Otherdeeds for Otherside',
+    asset_platform_id: 'ethereum',
+    symbol: 'OTHERDEED'
+  },
+  {
+    id: 'azuki',
+    contract_address: '0xed5af388653567af2f388e6224dc7c4b3241c544',
+    name: 'Azuki',
+    asset_platform_id: 'ethereum',
+    symbol: 'AZUKI'
+  }
+];
 
 const mockTrendingData: TrendingData = {
   coins: [
@@ -583,10 +756,141 @@ export class CoinGeckoService {
       }));
     }
   }
+
+  // Rate limiting helper
+  private static rateLimitDelay = 0;
+  private static lastRequestTime = 0;
+
+  private static async rateLimit() {
+    const now = Date.now();
+    const timeSinceLastRequest = now - this.lastRequestTime;
+    const minDelay = 1000; // 1 second between requests
+    
+    if (timeSinceLastRequest < minDelay) {
+      const delay = minDelay - timeSinceLastRequest;
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    
+    this.lastRequestTime = Date.now();
+  }
+
+  // Get NFT collections list
+  static async getNFTCollections(
+    page: number = 1,
+    perPage: number = 20,
+    order: string = 'market_cap_usd_desc'
+  ): Promise<NFTListResponse> {
+    try {
+      await this.rateLimit();
+      console.log(`Fetching NFT collections (page: ${page}, perPage: ${perPage}, order: ${order}) from CoinGecko API...`);
+      const params = new URLSearchParams({
+        page: String(page),
+        per_page: String(perPage),
+        order
+      });
+      const response = await fetch(`/api/coingecko/nfts?${params.toString()}`);
+      if (!response.ok) {
+        if (response.status === 429) {
+          console.warn('Rate limited, waiting before retry...');
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          return this.getNFTCollections(page, perPage, order);
+        }
+        // Handle 500 errors (server errors) by falling back to mock data
+        if (response.status >= 500) {
+          console.warn(`Server error ${response.status}, falling back to mock data...`);
+          return {
+            data: mockNFTData,
+            total: mockNFTData.length,
+            page: 1,
+            per_page: perPage,
+            order
+          };
+        }
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(`Successfully fetched ${data.length || 0} NFT collections`);
+      
+      // For pagination, we need to estimate total based on current page
+      // Since CoinGecko doesn't provide total count, we'll estimate it
+      const estimatedTotal = data.length === perPage ? (page * perPage) + 1 : (page - 1) * perPage + data.length;
+      
+      return {
+        data: data as NFTCollectionBasic[],
+        total: estimatedTotal,
+        page: page,
+        per_page: perPage,
+        order: order
+      };
+    } catch (error) {
+      console.error('CoinGecko API failed for NFT collections:', error);
+      console.warn('Falling back to mock data for NFT collections');
+      return {
+        data: mockNFTData,
+        total: mockNFTData.length,
+        page: 1,
+        per_page: perPage,
+        order
+      };
+    }
+  }
+
+  // Get specific NFT collection details
+  static async getNFTCollectionDetails(id: string): Promise<NFTCollection> {
+    try {
+      await this.rateLimit();
+      console.log(`Fetching NFT collection details for ${id} from CoinGecko API...`);
+      const response = await fetch(`/api/coingecko/nfts/${id}`);
+      if (!response.ok) {
+        if (response.status === 429) {
+          console.warn('Rate limited, waiting before retry...');
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          return this.getNFTCollectionDetails(id);
+        }
+        // Handle 500 errors (server errors) by falling back to mock data
+        if (response.status >= 500) {
+          console.warn(`Server error ${response.status}, falling back to mock data...`);
+          return mockNFTData.find(nft => nft.id === id) || mockNFTData[0];
+        }
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(`Successfully fetched NFT collection details for ${id}`);
+      return data as NFTCollection;
+    } catch (error) {
+      console.error(`CoinGecko API failed for NFT collection details (${id}):`, error);
+      console.warn('Falling back to mock data for NFT collection details');
+      return mockNFTData.find(nft => nft.id === id) || mockNFTData[0];
+    }
+  }
+
+  // Get NFT collection by contract address
+  static async getNFTCollectionByContract(
+    platform: string,
+    contractAddress: string
+  ): Promise<NFTCollection> {
+    try {
+      console.log(`Fetching NFT collection by contract ${contractAddress} on ${platform} from CoinGecko API...`);
+      const response = await fetch(`/api/coingecko/nfts/contract/${platform}/${contractAddress}`);
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(`Successfully fetched NFT collection by contract ${contractAddress}`);
+      return data as NFTCollection;
+    } catch (error) {
+      console.error(`CoinGecko API failed for NFT collection by contract (${platform}/${contractAddress}):`, error);
+      console.warn('Falling back to mock data for NFT collection by contract');
+      return mockNFTData[0];
+    }
+  }
 }
 
 // Utility functions
-export const formatCurrency = (value: number, currency: string = 'USD'): string => {
+export const formatCurrency = (value: number | null | undefined, currency: string = 'USD'): string => {
+  if (value === null || value === undefined || isNaN(value)) {
+    return 'N/A';
+  }
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: currency,
@@ -595,7 +899,10 @@ export const formatCurrency = (value: number, currency: string = 'USD'): string 
   }).format(value);
 };
 
-export const formatNumber = (value: number): string => {
+export const formatNumber = (value: number | null | undefined): string => {
+  if (value === null || value === undefined || isNaN(value)) {
+    return 'N/A';
+  }
   if (value >= 1e12) {
     return (value / 1e12).toFixed(2) + 'T';
   } else if (value >= 1e9) {
@@ -608,11 +915,17 @@ export const formatNumber = (value: number): string => {
   return value.toFixed(2);
 };
 
-export const formatPercentage = (value: number): string => {
+export const formatPercentage = (value: number | null | undefined): string => {
+  if (value === null || value === undefined || isNaN(value)) {
+    return 'N/A';
+  }
   return `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
 };
 
-export const getChangeColor = (value: number): string => {
+export const getChangeColor = (value: number | null | undefined): string => {
+  if (value === null || value === undefined || isNaN(value)) {
+    return 'text-gray-500';
+  }
   if (value > 0) return 'text-green-500';
   if (value < 0) return 'text-red-500';
   return 'text-gray-500';
